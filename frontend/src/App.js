@@ -17,7 +17,6 @@ function App() {
             const response = await axios.post('http://localhost:8000/word/', { text })
             setNumberWords(response.data.number)
         } catch (error) {
-            console.log(error)
             setError(error?.response?.data?.detail?.message || 'Something wrong happen!')
         } finally {
             setLoading(false)
