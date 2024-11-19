@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  font-weight: bold;
+}
