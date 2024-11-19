@@ -1,6 +1,7 @@
 import pytest
 
 from backend.app.services.count_words_service import GetNumberOfWords
+from backend.app.errors.empty_text_error import EmptyTextError
 
 
 @pytest.mark.parametrize("text, result",
@@ -16,3 +17,12 @@ def test_count_words(text, result):
     get_number_words = GetNumberOfWords(text=text)
 
     assert get_number_words.get_number_words() == result
+
+
+def test_error_words():
+    text = GetNumberOfWords(text="")
+
+    try:
+        text.get_number_words()
+    except Exception as exception:
+        assert isinstance(exception, EmptyTextError)
